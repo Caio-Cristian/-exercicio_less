@@ -1,0 +1,167 @@
+@import "mapas.less";
+
+@primary-color: #3498db;
+@secondary-color: #2ecc71;
+@header-height: 80px;
+
+@breakpointMobile: ~"(max-width: 767px)";
+@breakpointTablet: ~"(min-width: 768px) and (max-width: 1023px)";
+
+body {
+    font-family: Arial, sans-serif;
+    color: #colors[textColor];
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #colors[primaryColor];
+    height: #heights[headerHeight];
+
+    .container {    
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+        
+        @media @breakpointMobile {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    }
+
+    .branding {    
+        img {
+            max-height: 70px;
+
+            @media @breakpointMobile {
+                max-height: 50px;
+            }
+        }
+    }
+
+    nav {
+        ul.menu {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+
+            @media @breakpointMobile {
+                flex-direction: column;
+                width: 100%;
+                padding-top: 10px;
+            }
+
+            li {
+                margin-left: 20px;
+
+                @media @breakpointMobile {
+                    margin-left: 0;
+                    margin-bottom: 10px;
+                }
+
+                a {
+                    color: white;
+                    text-decoration: none;
+                    font-weight: bold;
+                    
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }   
+    }
+}
+
+section {
+    padding: 40px 0;
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+
+        @media @breakpointMobile {
+            padding: 0 20px;
+        }
+    }
+
+    h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+
+        @media @breakpointMobile {
+            font-size: 24px;
+        }
+    }
+
+    ul.products {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        @media @breakpointMobile {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        li.product-item {
+            background-color: #f8f8f8;
+            border: 1px solid #e1e1e1;
+            padding: 20px;
+            margin-bottom: 20px;
+            width: 22%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            
+            @media @breakpointTablet {
+                width: 48%;
+            }
+            
+            @media @breakpointMobile {
+                width: 100%;
+            }
+
+            h4 {
+                margin-top: 15px;
+                font-size: 18px;
+
+                @media @breakpointMobile {
+                    font-size: 16px;
+                }
+            }
+
+            p {
+                font-size: 14px;
+                margin-top: 10px;
+
+                @media @breakpointMobile {
+                    font-size: 13px;
+                }
+            }
+        
+            .product-button {
+                display: inline-block;
+                margin-top: 15px;
+                padding: 10px 15px;
+                background-color: #colors[secondaryColor];
+                color: white;
+                text-decoration: none;
+                border-radius: 5px;
+                
+                &:hover {
+                    background-color: darken(@colors[secondaryColor], 10%);
+                }
+
+                @media @breakpointMobile {
+                    padding: 8px 12px;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
